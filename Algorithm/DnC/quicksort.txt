@@ -1,0 +1,16 @@
+procedure qsort(lower,upper:longint);
+var left,right,pivot,tmp:longint;
+begin
+    pivot:=a[(lower+upper) div 2];
+    left:=lower; right:=upper;
+    while left<=right do begin
+        while a[left]<pivot do inc(left);
+        while a[right]>pivot do dec(right);
+        if left<=right then begin
+            tmp:=a[left]; a[left]:=a[right]; a[right]:=tmp;
+            inc(left); dec(right);
+        end;
+    end;
+    if right>lower then qsort(lower,right);
+    if left<upper then qsort(left,upper);
+end;

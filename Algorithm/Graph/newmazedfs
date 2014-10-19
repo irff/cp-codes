@@ -1,0 +1,19 @@
+// recursive process
+void dfs(int a, int b){
+    if(a>=0 and a<bar and b>=0 and b<kol and m[a][b]!='#'){
+        com++;
+        m[a][b]='#';
+        dfs(a-1,b);
+        dfs(a,b+1);
+        dfs(a+1,b);
+        dfs(a,b-1);
+    }
+}
+
+// main process
+    R(i,0,bar) R(j,0,kol){
+        com=0;
+        dfs(i,j);
+        MAX=max(com,MAX);
+    }
+    printf("%d\n", MAX);

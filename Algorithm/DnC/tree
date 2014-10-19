@@ -1,0 +1,55 @@
+void propagate(int node,ll val,int rg)
+{
+	st[node]+=val*rg;
+	prop[node]+=val;
+	return ;
+}
+
+void update(int node,int l,int r)
+{
+	if (a<=l && r<=b)
+	{
+		propagate(node,c,r-l+1);
+		return ;
+	}
+	int mid=(l+r)>>1,A=node<<1,B=A|1;
+	if (prop[node])
+	{
+		propagate(A,prop[node],mid-l+1);
+		propagate(B,prop[node],r-mid);
+		prop[node]=0;
+	}
+	if (mid>=a) update(A,l,mid);
+	if (mid+1<=b) update(B,mid+1,r);
+	st[node]=st[A]+st[B];
+	return ;
+}
+
+void query(int node,int l,int r)
+{
+	if (a<=l && r<=b)
+	{
+		ans+=st[node];
+		return ;
+	}
+	int mid=(l+r)>>1,A=node<<1,B=A|1;
+	if (prop[node])
+	{
+		propagate(A,prop[node],mid-l+1);
+		propagate(B,prop[node],r-mid);
+		prop[node]=0;
+	}
+	if (mid<a)
+	{
+		query(B,mid+1,r);
+		return ;
+	}
+	else if (mid+1>b)
+	{
+		query(A,l,mid);
+		return ;
+	}
+	query(A,l,mid);query(B,mid+1,r);
+	return ;
+}
+

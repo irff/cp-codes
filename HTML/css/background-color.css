@@ -1,0 +1,18 @@
+body {
+	background-color: rgb(200,75,150);
+}
+
+h1 {
+	background-color: rgba(50,100,200,0.4);
+	color: white;
+	//opacity: 0.5;
+}
+
+h2 {
+	background-color: hsl(200,70%, 40%);
+	color: white;
+}
+
+p {
+	background-color: white;
+}

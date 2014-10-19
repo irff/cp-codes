@@ -1,0 +1,13 @@
+import java.util.Arrays.*;
+
+class ArraySorting {
+
+  public static void main(String[] args) {
+    
+    String[] str = {"Irfan", "Tri", "Ahmad"};
+    Arrays.sort(str);
+    
+    System.out.println(toString(str));
+    
+  }
+}
